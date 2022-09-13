@@ -33,27 +33,27 @@ namespace ApllTeleofisBack.Controllers
         [HttpGet]
         public async Task<IActionResult> GetLoginG([FromQuery]string validLogin, [FromQuery] string validPassword) // 
         {
-            string logins = validLogin;
+            //string logins = validLogin;
             //string password = "";
-            //var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == validLogin && x.Password == validPassword);
-
-            //  if (validUser != null)
-            //     return Ok(true);
-            // else
-            return Ok(false);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> GetLogin([FromBody] Login login,[FromQuery(Name = "validLogin")] string validLogin) // 
-        {
-            string logins = validLogin;
-            //string password = "";
-            var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == login.LoginValid && x.Password == login.Password);
+            var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == validLogin && x.Password == validPassword);
 
             if (validUser != null)
                 return Ok(true);
-            else 
+            else
                 return Ok(false);
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> GetLogin([FromBody] Login login,[FromQuery(Name = "validLogin")] string validLogin) // 
+        //{
+        //    string logins = validLogin;
+        //    //string password = "";
+        //    var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == login.LoginValid && x.Password == login.Password);
+
+        //    if (validUser != null)
+        //        return Ok(true);
+        //    else 
+        //        return Ok(false);
+        //}
     }
 }
