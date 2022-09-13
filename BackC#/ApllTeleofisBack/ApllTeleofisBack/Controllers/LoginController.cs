@@ -16,10 +16,37 @@ namespace ApllTeleofisBack.Controllers
             _dataContext = dataContext;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetLogin([FromBody] Login login) // 
+        //[HttpGet]
+        //[Route("{validLogin}/{validPassword}")]
+        //public async Task<IActionResult> GetLoginG([FromRoute] string validLogin, [FromRoute] string validPassword) // 
+        //{
+        //    string logins = validLogin;
+        //    string password = "";
+        //    var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == validLogin && x.Password == validPassword);
+
+        //    if (validUser != null)
+        //        return Ok(true);
+        //    else
+        //        return Ok(false);
+        //}
+
+        [HttpGet]
+        public async Task<IActionResult> GetLoginG([FromQuery]string validLogin, [FromQuery] string validPassword) // 
         {
-            //string login = "";
+            string logins = validLogin;
+            //string password = "";
+            //var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == validLogin && x.Password == validPassword);
+
+            //  if (validUser != null)
+            //     return Ok(true);
+            // else
+            return Ok(false);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetLogin([FromBody] Login login,[FromQuery(Name = "validLogin")] string validLogin) // 
+        {
+            string logins = validLogin;
             //string password = "";
             var validUser = await _dataContext.Users.FirstOrDefaultAsync(x => x.Login == login.LoginValid && x.Password == login.Password);
 
