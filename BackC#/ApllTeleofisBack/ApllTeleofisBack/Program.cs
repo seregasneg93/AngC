@@ -1,8 +1,13 @@
 using ApllTeleofisBack.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.WebHost.ConfigureKestrel((context, serverOptions) =>
+//{
+//    serverOptions.Listen(IPAddress.Parse("192.168.1.169"), 5003);
+//});
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -14,6 +19,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FullConnect")));
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
