@@ -9,6 +9,7 @@
         public int Modbuss { get; set; }
         public double Current { get; set; }
         public bool IsActive { get; set; }
+        public DateTime LastPoll { get; set; }
         public ICollection<FrequencyJournal> FrequencyJournals { get; set; }
         public ICollection<JournalErrrosChastotnick> JournalErrrosChastotnicks { get; set; }
     }

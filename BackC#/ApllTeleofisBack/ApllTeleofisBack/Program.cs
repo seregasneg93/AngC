@@ -4,12 +4,12 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.WebHost.UseUrls("http://192.168.1.169:5007");
+builder.WebHost.UseUrls("http://192.168.1.169:11008");
 
 //builder.WebHost.ConfigureKestrel((context, serverOptions) =>
 //{
 //    string url = "http://192.168.1.169";
-//    serverOptions.Listen(IPAddress.Parse(url), 5007);
+//    serverOptions.Listen(IPAddress.Parse("192.168.1.169"), 11008);
 //});
 // Add services to the container.
 

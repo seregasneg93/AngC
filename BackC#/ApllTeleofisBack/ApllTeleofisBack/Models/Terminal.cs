@@ -14,6 +14,7 @@ namespace ApllTeleofisBack.Models
         public string NumberPhone { get; set; }
         public bool ConnectTerminalJobChannel { get; set; }
         public bool ConnectTerminalServicesChannel { get; set; }
+        public bool AcessReadModbuss { get; set; }
         public string Descriptions { get; set; }
         public string AddressObject { get; set; }
         public string TypeServices { get; set; }
